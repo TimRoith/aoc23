@@ -243,6 +243,7 @@ I[...,0][np.where(A>0.)]=1
 plt.imshow(I)
 
 b = np.where(np.logical_and(A>0, I[...,1]>0))
+np.logical()
 #%%
 pos_tile[np.where(pos_tile!=D)] = 0.             
 #plt.imshow(pos_tile)
