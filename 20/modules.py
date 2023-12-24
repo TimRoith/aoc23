@@ -124,8 +124,7 @@ for m in M.keys():
         C[m] = -1
 
 num = 1
-term = False
-while not term:
+while num < 5000:
     M['broadcaster'].receive('low', 'Center')
     while len(Jobs) > 0:
         J = Jobs.pop(0)
@@ -136,6 +135,6 @@ while not term:
                     C[J[1]] = num
     num += 1
             
-cc = [C[c] for c in C.keys() if C[c] >0]
+cc = [C[c] for c in C.keys() if C[c] >2]
 print('Part two: ' + str(lcm(*cc)))
     
