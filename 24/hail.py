@@ -46,7 +46,7 @@ F = np.zeros(6)
 for i in [0,1]:
     A[3*i:3*(i+1),:3] = np.cross(np.eye(3), V[0,:] - V[i+1,:])
     A[3*i:3*(i+1),3:] = np.cross(np.eye(3), X[i+1,:] - X[0,:])
-    F[3*i:3*(i+1)]    = np.cross(X[i+1,:], V[i+1,:]) - np.cross(X[0,:], V[0,:])
+    F[3*i:3*(i+1)]    = np.cross(X[i+1,:] , V[i+1,:]) - np.cross(X[0,:], V[0,:])
 
 XV = np.round(np.linalg.solve(A, F))
 print('Part two: ' +str(int(np.sum(XV[:3]))))
