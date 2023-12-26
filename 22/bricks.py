@@ -27,13 +27,13 @@ for b in B:
 F = np.zeros(cmax)
 B.sort(key=lambda x: x.zmin)
 #%% Falling
-def fall(F,B):
+def fall(F,B, mmin=1):
     for i in range(len(B)):
         idx = np.where(np.sum(F[B[i].xslice, ...][:,B[i].yslice, :],axis=(0,1)) > 0)[-1]
         m = 0
         if len(idx) > 0:
             m = max(idx)
-        m+=1
+        m+=mmin
         F[B[i].xslice, B[i].yslice, m:(m+B[i].c[1,2]-B[i].c[0,2]+1)] = B[i].idx
     return F,B
 #%%
